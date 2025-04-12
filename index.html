@@ -3,7 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="GEN Z AI Chatbot - Powered by Gen Z AI to assist with all your queries.">
+    <meta name="keywords" content="GEN Z, AI, Chatbot, Chatbot for websites, Support chatbot">
+    <meta name="author" content="Maruf">
     <title>GEN Z AI Chatbot</title>
+    <link rel="icon" href="path/to/your/favicon.ico" type="image/x-icon">
     <style>
         /* Global Styles */
         body {
@@ -64,18 +68,61 @@
             border-radius: 10px;
             box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
             margin-top: 20px;
+            background-color: #f5f5f5; /* Chatbot background color */
         }
 
-        /* Footer Styles */
+        /* Live Chat Button */
+        #chatButton {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #ff7e5f;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            padding: 15px;
+            font-size: 18px;
+            cursor: pointer;
+        }
+
+        /* Feedback Form */
+        #feedbackForm {
+            position: fixed;
+            bottom: 100px;
+            right: 20px;
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Chatbot Avatar */
+        .chatbot-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background-color: #ff7e5f;
+            margin-right: 10px;
+        }
+
+        .chatbot-avatar img {
+            width: 100%;
+            border-radius: 50%;
+        }
+
+        /* Footer Styles - Updated */
         .footer {
-            background-color: rgba(46, 59, 78, 0.8); /* Matching header background */
-            color: #fff;
-            padding: 15px 20px;
+            background-color: #333333; /* Solid color background */
+            color: #fff; /* Text color */
+            padding: 20px 20px;
             text-align: center;
             font-size: 14px;
-            position: relative;
+            position: fixed;
             bottom: 0;
+            left: 0;
             width: 100%;
+            z-index: 1000;
+            box-shadow: 0 -1px 10px rgba(0, 0, 0, 0.1); /* Light shadow for separation */
         }
 
         .footer a {
@@ -84,6 +131,26 @@
             font-size: 16px;
             font-weight: 500;
             letter-spacing: 1px;
+        }
+
+        /* Share Buttons Styles */
+        .share-buttons {
+            margin-top: 10px;
+        }
+
+        .share-buttons a {
+            text-decoration: none;
+            margin: 0 10px;
+            padding: 10px 20px;
+            background-color: #ff7e5f;
+            color: white;
+            border-radius: 5px;
+            font-size: 16px;
+            font-weight: 500;
+        }
+
+        .share-buttons a:hover {
+            background-color: #ff503f;
         }
 
         /* Hover Effect for Footer Link */
@@ -107,6 +174,11 @@
 
             iframe {
                 height: 50vh;
+            }
+
+            .footer {
+                font-size: 12px;
+                padding: 15px;
             }
         }
 
@@ -152,11 +224,41 @@
         frameborder="0"
     ></iframe>
 
-    <!-- Custom Footer -->
-    <div class="footer">
-        <p>Powered by Gen Z AI</p>
-        <a href="https://www.facebook.com/swampodsarkar/" target="_blank">Visit our site</a>
+    <!-- Custom Welcome Message -->
+    <div id="welcomePopup" style="position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background-color: #ffffff; padding: 20px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+        <h2>Welcome to GEN Z AI Chatbot!</h2>
+        <p>We are here to help you with anything you need.</p>
+        <button onclick="closePopup()" style="background-color: #ff7e5f; color: white; padding: 10px 20px; border: none; border-radius: 5px;">Close</button>
     </div>
+
+    <!-- Chatbot Avatar -->
+    <div class="chatbot-avatar">
+        <img src="path_to_avatar_image.jpg" alt="Chatbot Avatar">
+    </div>
+
+    <!-- Live Chat Button -->
+    <button id="chatButton">💬</button>
+
+    <!-- Footer -->
+    <div class="footer">
+        <p>Powered by <a href="https://www.genz.com" target="_blank">Gen Z AI</a></p>
+        <div class="share-buttons">
+            <a href="https://www.facebook.com/sharer/sharer.php?u=your_website_url" target="_blank">Share on Facebook</a>
+            <a href="https://twitter.com/intent/tweet?url=your_website_url" target="_blank">Share on X</a>
+        </div>
+    </div>
+
+    <script>
+        function closePopup() {
+            document.getElementById('welcomePopup').style.display = 'none';
+        }
+
+        // Toggle the visibility of the chatbot iframe or open a chat window.
+        document.getElementById('chatButton').addEventListener('click', function() {
+            var iframe = document.querySelector('iframe');
+            iframe.style.display = iframe.style.display === 'none' ? 'block' : 'none';
+        });
+    </script>
 
 </body>
 </html>
